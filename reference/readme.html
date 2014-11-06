@@ -43,7 +43,7 @@ be useful for debugging purposes or working with the TUIO Simulator.
 
 <h2>Installation:</h2>
 <p>
-Copy the complete contents of this distribution to a folder named <b>TUIO</b> to the <b>libraries</b> folder of your Processing sketchbook.
+Move the uncompressed <b>TUIO</b> folder to the <b>libraries</b> directory of your Processing sketchbook.
 In order to use this library, you will need to provide the according import statement within the header of your Processing sketch:
 </p>
 <code>
@@ -81,11 +81,11 @@ a cursor was moving on the table surface
 <li><b>removeTuioCursor(TuioCursor tcur)</b>
 a cursor was removed from the table
 <li><b>addTuioBlob(TuioBlob tblb)</b>
-this is called when a new cursor is detected
+this is called when a new blob is detected
 <li><b>updateTuioBlob(TuioBlob tblb)</b>
-a cursor was moving on the table surface
+a blob was moving on the table surface
 <li><b>removeTuioBlob(TuioBlob tblb)</b>
-a cursor was removed from the table
+a blob was removed from the table
 <li><b>refresh(TuioTime frameTime)</b>
 this method is called after each bundle,<br />
 use it to repaint your screen for example
