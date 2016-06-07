@@ -52,7 +52,8 @@ void setup()
     frameRate(60); //<>//
   } else noLoop(); // or callback updates 
   
-  font = createFont("Arial", 18);
+  font = createFont("Arial", 8);
+  textFont(font);
   scale_factor = height/table_size;
   
   // finally we create an instance of the TuioProcessing client
@@ -65,7 +66,7 @@ void setup()
 // from the TuioProcessing client and then loops over all lists to draw the graphical feedback.
 void draw()
 {
-  background(255);
+  background(0,0,64);
   textFont(font,18*scale_factor);
   float obj_size = object_size*scale_factor; 
   float cur_size = cursor_size*scale_factor; 
@@ -73,8 +74,8 @@ void draw()
   ArrayList<TuioObject> tuioObjectList = tuioClient.getTuioObjectList();
   for (int i=0;i<tuioObjectList.size();i++) {
      TuioObject tobj = tuioObjectList.get(i);
-     stroke(0);
-     fill(0,0,0);
+     stroke(64,0,0);
+     fill(64,0,0);
      pushMatrix();
      translate(tobj.getScreenX(width),tobj.getScreenY(height));
      rotate(tobj.getAngle());
@@ -98,8 +99,8 @@ void draw()
            start_point = end_point;
         }
         
-        stroke(192,192,192);
-        fill(192,192,192);
+        stroke(64,0,64);
+        fill(64,0,64);
         ellipse( tcur.getScreenX(width), tcur.getScreenY(height),cur_size,cur_size);
         fill(0);
         text(""+ tcur.getCursorID(),  tcur.getScreenX(width)-5,  tcur.getScreenY(height)+5);
@@ -109,8 +110,8 @@ void draw()
   ArrayList<TuioBlob> tuioBlobList = tuioClient.getTuioBlobList();
   for (int i=0;i<tuioBlobList.size();i++) {
      TuioBlob tblb = tuioBlobList.get(i);
-     stroke(0);
-     fill(0);
+     stroke(64);
+     fill(64);
      pushMatrix();
      translate(tblb.getScreenX(width),tblb.getScreenY(height));
      rotate(tblb.getAngle());
