@@ -52,8 +52,7 @@ void setup()
     frameRate(60); //<>//
   } else noLoop(); // or callback updates 
   
-  font = createFont("Arial", 8);
-  textFont(font);
+  font = createFont("Arial", 12);
   scale_factor = height/table_size;
   
   // finally we create an instance of the TuioProcessing client
@@ -67,7 +66,7 @@ void setup()
 void draw()
 {
   background(0,0,64);
-  textFont(font,18*scale_factor);
+  textFont(font,12*scale_factor);
   float obj_size = object_size*scale_factor; 
   float cur_size = cursor_size*scale_factor; 
    
@@ -115,10 +114,10 @@ void draw()
      pushMatrix();
      translate(tblb.getScreenX(width),tblb.getScreenY(height));
      rotate(tblb.getAngle());
-     ellipse(-1*tblb.getScreenWidth(width)/2,-1*tblb.getScreenHeight(height)/2, tblb.getScreenWidth(width), tblb.getScreenWidth(width));
+     ellipse(0,0, tblb.getScreenWidth(width), tblb.getScreenHeight(height));
      popMatrix();
      fill(255);
-     text(""+tblb.getBlobID(), tblb.getScreenX(width), tblb.getScreenX(width));
+     text(""+tblb.getBlobID(), tblb.getScreenX(width), tblb.getScreenY(height));
    }
 }
 
