@@ -82,19 +82,19 @@ public class TuioProcessing implements TuioListener {
 		try { addTuioBlob = parent.getClass().getMethod("addTuioBlob", new Class[] { TuioBlob.class }); }
 		catch (Exception e) { 
 			System.out.println("TUIO: missing or wrong 'addTuioBlob(TuioBlob tblb)' method implementation");
-			addTuioCursor = null;
+			addTuioBlob = null;
 		}
 		
 		try { removeTuioBlob = parent.getClass().getMethod("removeTuioBlob", new Class[] { TuioBlob.class }); }
 		catch (Exception e) { 
 			System.out.println("TUIO: missing or wrong 'removeTuioBlob(TuioBlob tblb)' method implementation");
-			removeTuioCursor = null;
+			removeTuioBlob = null;
 		}
 		
 		try { updateTuioBlob = parent.getClass().getMethod("updateTuioBlob", new Class[] { TuioBlob.class }); }
 		catch (Exception e) { 
 			System.out.println("TUIO: missing or wrong 'updateTuioBlobTuioBlob tblb)' method implementation");
-			updateTuioCursor = null;
+			updateTuioBlob = null;
 		}
 		
 		client = new TuioClient(port);
