@@ -1,6 +1,6 @@
 /* //<>//
  TUIO 1.1 Demo for Processing
- Copyright (c) 2005-2016 Martin Kaltenbrunner <martin@tuio.org>
+ Copyright (c) 2005-2026 Martin Kaltenbrunner <martin@tuio.org>
 
  Permission is hereby granted, free of charge, to any person obtaining
  a copy of this software and associated documentation files
@@ -38,11 +38,14 @@ PFont font;
 boolean verbose = false; // print console debug messages
 boolean callback = true; // updates only after callbacks
 
+// GUI setup
+void settings() {
+  fullScreen();
+}
+
 void setup()
 {
-  // GUI setup
   noCursor();
-  size(displayWidth,displayHeight);
   noStroke();
   fill(0);
   

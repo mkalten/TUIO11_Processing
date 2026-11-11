@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.tuio</groupId>
+  <artifactId>tuio-processing</artifactId>
+  <version>1.1.6</version>
+  <packaging>jar</packaging>
+
+  <name>TUIO Processing Library</name>
+  <description>TUIO 1.1 UDP client library for Processing</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>8</maven.compiler.release>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.processing</groupId>
+      <artifactId>core</artifactId>
+      <version>3.3.7</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.tuio</groupId>
+      <artifactId>tuio</artifactId>
+      <version>1.1.6</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/library/libTUIO.jar</systemPath>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- sources live directly in src/ to keep the historic repo layout -->
+    <sourceDirectory>src</sourceDirectory>
+    <!-- the Processing library jar name -->
+    <finalName>TUIO</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <release>8</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.4.2</version>
+        <configuration>
+          <!-- build the library jar in place -->
+          <outputDirectory>${project.basedir}/library</outputDirectory>
+          <archive>
+            <manifestEntries>
+              <Class-Path>libTUIO.jar</Class-Path>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
